@@ -20,9 +20,9 @@ def fetch_news(api_key, query, num_articles):
 def generate_did_video(script, image_url):
     url = "https://api.d-id.com/talks"
     headers = {
-        "Authorization": "Basic aW5mb2xpdmVuZXdzMTIzNEBnbWFpbC5jb20:yklg-h2r71QG4iftxHKws",
+        "Authorization": "Basic Y2hpbGxpYmx1ZXMxM0BnbWFpbC5jb20:v_LEuUxDr9rgMYrtOT8XL",
         "Content-Type": "application/json"
-   }
+    }
     payload = {
         "script": {
             "type": "text",
@@ -30,7 +30,7 @@ def generate_did_video(script, image_url):
             "provider": {
                 "type": "microsoft",
                 "voice_id": "en-US-JennyNeural"
-           }
+            }
         },
         "source_url": image_url
     }
@@ -112,7 +112,7 @@ def main():
 
     st.sidebar.header("Demonstration")
     api_key_news = 'ad00a306c6a4404a9fe801b405df2c5d'
-    num_articles = st.sidebar.slider("Number of Articles", 0, 4, 4)
+    num_articles = st.sidebar.slider("Number of Articles", 3, 15,9)
     topic = st.sidebar.text_input("News Topic")
 
     if st.sidebar.button("Get News"):
@@ -123,32 +123,34 @@ def main():
 
                 st.header("Latest News")
                 for i, article in enumerate(news_articles):
-                    st.markdown(""""""<div class="news-article">
+                    st.markdown("""
+                        <div class="news-article">
                             <h2>{i+1}. {article['title']}</h2>
                             <p>{article['description']}</p>
                             <a href="{article['url']}" target="_blank">Read more</a>
-                        </div>"""""", unsafe_allow_html=True)
-                
-                image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
-                print('test1')
+                            </div> 
+                            """,  unsafe_allow_html=True)
+
+                image_url = "https://i.ibb.co/xCBJtS2/Designer.png"
+                #print('test1')
                 result_url = generate_did_video(script, image_url)
-                print('test2')
-                video_id = result_url['id']
-
+                #print('test2')
+                print(result_url)
                 
 
-               
-            url = "https://d-id-talks-prod.s3.us-west-2.amazonaws.com/google-oauth2%7C107647455065119247298/" + str(video_id) + "/1720790321465.mp4?AWSAccessKeyId=AKIA5CUMPJBIK65W6FGA&Expires=1720876742&Signature=o0YkEdSnjHlAIktX4ro8oBM%2Bgz4%3D"
+                
+            url = "https://api.d-id.com/talks/" + str(result_url)
             print('URL: ',url)
+
             headers = {
-                       "accept": "application/json",
-                        "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
-            }
+                        "accept": "application/json",
+                        "authorization": "Basic WTJocGJHeHBZbXgxWlhNeE0wQm5iV0ZwYkM1amIyMDp2X0xFdVV4RHI5cmdNWXJ0T1Q4WEw="
+                    }
+
             response = requests.get(url, headers=headers)
-            
             if "_url" in response.text:
-                           print('inside')
-                           time.sleep(2)
+                        print('inside')
+                        time.sleep(2)
 
             print('Respone text: ',response.text)
             
@@ -156,11 +158,11 @@ def main():
 
 
 
-            print(video_id)
+            print(result_url)
             if url:
-                   st.header("Generated News Video")
-                   st.video(url)
-                  
+                    st.header("Generated News Video")
+                    st.video(url)
+                    print(url)
             else:
                 st.error("No relevant articles found.")
         else:
@@ -213,7 +215,7 @@ def main():
     st.markdown("""
         <div class="container">
             <h1>Contact Us</h1>
-            <p><b>Email:</b> infolive.theainewsanchor@gmail.com</p>
+            <p><b>Email:</b> nagarshaurya70@gmail.com</p>
             <p><b>Phone:</b> 8780695872</p>
             <p><b>Address:</b> Zebar School For Children, Thaltej, Ahmedabad - 380058</p>
         </div>
