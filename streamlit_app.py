@@ -123,14 +123,12 @@ def main():
 
                 st.header("Latest News")
                 for i, article in enumerate(news_articles):
-                    st.markdown(f"""
-                        <div class="news-article">
+                    st.markdown(f <div class="news-article">
                             <h2>{i+1}. {article['title']}</h2>
                             <p>{article['description']}</p>
                             <a href="{article['url']}" target="_blank">Read more</a>
-                        </div>
-                    """, unsafe_allow_html=True)
-
+                        </div>, unsafe_allow_html=True)
+                
                 image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                 print('test1')
                 result_url = generate_did_video(script, image_url)
@@ -139,16 +137,15 @@ def main():
 
                 
 
-                
+               
             url = "https://d-id-talks-prod.s3.us-west-2.amazonaws.com/google-oauth2%7C107647455065119247298/" + str(video_id) + "/1720790321465.mp4?AWSAccessKeyId=AKIA5CUMPJBIK65W6FGA&Expires=1720876742&Signature=o0YkEdSnjHlAIktX4ro8oBM%2Bgz4%3D"
             print('URL: ',url)
-
             headers = {
                        "accept": "application/json",
                         "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
             }
-
             response = requests.get(url, headers=headers)
+            
             if "_url" in response.text:
                            print('inside')
                            time.sleep(2)
@@ -160,14 +157,10 @@ def main():
 
 
             print(video_id)
-            if news_articles:
+            if url:
                    st.header("Generated News Video")
-                   if topic == "sports" or "Sports" or "sport":
-                        st.video('1720835456951.mp4')
-                   elif topic== "tech" or "technology" or "Technology":
-                         st.video('1720835881769.mp4')
-                   elif topic == "politics" or "Politics" or "American politics":
-                         st.video("1720835980469.mp4")
+                   st.video(url)
+                  
             else:
                 st.error("No relevant articles found.")
         else:
