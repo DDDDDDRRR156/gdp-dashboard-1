@@ -172,7 +172,7 @@ def main():
         <div class="container">
             <h1>About InfoLive</h1>
             <p>In an era where information overload is ubiquitous, InfoLive serves as a beacon of clarity and efficiency. Utilizing cutting-edge natural language processing and machine learning technologies, InfoLive filters through the digital noise to deliver precise, relevant, and up-to-the-minute updates. By seamlessly navigating the vast landscape of news sources, InfoLive streamlines the news consumption process, empowering users to stay informed without feeling overwhelmed.</p>
-            <p>Whether it's breaking news, insightful analysis, or diverse perspectives, InfoLive ensures that users have access to the most pertinent information at their fingertips. With InfoLive, users can transcend the chaos of the digital age and embrace a streamlined, effortless approach to staying informed. Welcome to the future of news delivery with InfoLive, where clarity, efficiency, and relevance converge to redefine the way we consume information.</p>
+            <p>Whether it\'s breaking news, insightful analysis, or diverse perspectives, InfoLive ensures that users have access to the most pertinent information at their fingertips. With InfoLive, users can transcend the chaos of the digital age and embrace a streamlined, effortless approach to staying informed. Welcome to the future of news delivery with InfoLive, where clarity, efficiency, and relevance converge to redefine the way we consume information.</p>
             <p>
            The features of InfoLive are as follows: 
         </p>
