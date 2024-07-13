@@ -123,11 +123,11 @@ def main():
 
                 st.header("Latest News")
                 for i, article in enumerate(news_articles):
-                    st.markdown(f <div class="news-article">
+                    st.markdown(""<div class="news-article">
                             <h2>{i+1}. {article['title']}</h2>
                             <p>{article['description']}</p>
                             <a href="{article['url']}" target="_blank">Read more</a>
-                        </div>, unsafe_allow_html=True)
+                        </div>,"" unsafe_allow_html=True)
                 
                 image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                 print('test1')
