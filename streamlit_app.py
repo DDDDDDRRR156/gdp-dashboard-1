@@ -125,7 +125,7 @@ def main():
                 for i, article in enumerate(news_articles):
                     st.markdown(f"""
                         <div class="news-article">
-                            <h2>{{i+1}}. {article['title']}</h2>
+                            <h2>{i+1}. {article['title']}</h2>
                             <p>{article['description']}</p>
                             <a href="{article['url']}" target="_blank">Read more</a>
                             </div> 
