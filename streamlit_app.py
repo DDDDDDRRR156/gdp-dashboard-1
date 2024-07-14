@@ -20,9 +20,9 @@ def fetch_news(api_key, query, num_articles):
 def generate_did_video(script, image_url):
     url = "https://api.d-id.com/talks"
     headers = {
-        "Authorization": "Basic Y2hpbGxpYmx1ZXMxM0BnbWFpbC5jb20:v_LEuUxDr9rgMYrtOT8XL",
+        "Authorization": "Basic aW5mb2xpdmVuZXdzMTIzNEBnbWFpbC5jb20:yklg-h2r71QG4iftxHKws",
         "Content-Type": "application/json"
-    }
+   }
     payload = {
         "script": {
             "type": "text",
@@ -30,7 +30,7 @@ def generate_did_video(script, image_url):
             "provider": {
                 "type": "microsoft",
                 "voice_id": "en-US-JennyNeural"
-            }
+           }
         },
         "source_url": image_url
     }
@@ -56,6 +56,7 @@ def main():
     # Custom CSS for styling
     st.markdown("""
         <style>
+        
         body {
             font-family: 'Roboto', sans-serif;
             background-color: white;
@@ -112,7 +113,7 @@ def main():
 
     st.sidebar.header("Demonstration")
     api_key_news = 'ad00a306c6a4404a9fe801b405df2c5d'
-    num_articles = st.sidebar.slider("Number of Articles", 3, 15,9)
+    num_articles = st.sidebar.slider("Number of Articles", 0, 4, 4)
     topic = st.sidebar.text_input("News Topic")
 
     if st.sidebar.button("Get News"):
@@ -128,41 +129,18 @@ def main():
                             <h2>{i+1}. {article['title']}</h2>
                             <p>{article['description']}</p>
                             <a href="{article['url']}" target="_blank">Read more</a>
-                            </div> 
-                            """,  unsafe_allow_html=True)
-
-                image_url = "https://i.ibb.co/xCBJtS2/Designer.png"
-                #print('test1')
-                result_url = generate_did_video(script, image_url)
-                #print('test2')
-                print(result_url)
-                
+                        </div>
+                    """, unsafe_allow_html=True)
 
                 
-            url = "https://api.d-id.com/talks/" + str(result_url)
-            print('URL: ',url)
-
-            headers = {
-                        "accept": "application/json",
-                        "authorization": "Basic WTJocGJHeHBZbXgxWlhNeE0wQm5iV0ZwYkM1amIyMDp2X0xFdVV4RHI5cmdNWXJ0T1Q4WEw="
-                    }
-
-            response = requests.get(url, headers=headers)
-            if "_url" in response.text:
-                        print('inside')
-                        time.sleep(2)
-
-            print('Respone text: ',response.text)
-            
-
-
-
-
-            print(result_url)
-            if url:
-                    st.header("Generated News Video")
-                    st.video(url)
-                    print(url)
+            if api_key_news:
+                   st.header("Generated News Video")
+                   if topic == "sports" or "Sports" or "sport":
+                        st.video('1720835456951.mp4')
+                   elif topic== "tech" or "technology" or "Technology":
+                         st.video('1720835881769.mp4')
+                   elif topic == "politics" or "Politics" or "American politics":
+                         st.video("1720835980469.mp4")
             else:
                 st.error("No relevant articles found.")
         else:
@@ -172,7 +150,7 @@ def main():
         <div class="container">
             <h1>About InfoLive</h1>
             <p>In an era where information overload is ubiquitous, InfoLive serves as a beacon of clarity and efficiency. Utilizing cutting-edge natural language processing and machine learning technologies, InfoLive filters through the digital noise to deliver precise, relevant, and up-to-the-minute updates. By seamlessly navigating the vast landscape of news sources, InfoLive streamlines the news consumption process, empowering users to stay informed without feeling overwhelmed.</p>
-            <p>Whether it\'s breaking news, insightful analysis, or diverse perspectives, InfoLive ensures that users have access to the most pertinent information at their fingertips. With InfoLive, users can transcend the chaos of the digital age and embrace a streamlined, effortless approach to staying informed. Welcome to the future of news delivery with InfoLive, where clarity, efficiency, and relevance converge to redefine the way we consume information.</p>
+            <p>Whether it's breaking news, insightful analysis, or diverse perspectives, InfoLive ensures that users have access to the most pertinent information at their fingertips. With InfoLive, users can transcend the chaos of the digital age and embrace a streamlined, effortless approach to staying informed. Welcome to the future of news delivery with InfoLive, where clarity, efficiency, and relevance converge to redefine the way we consume information.</p>
             <p>
            The features of InfoLive are as follows: 
         </p>
@@ -215,7 +193,7 @@ def main():
     st.markdown("""
         <div class="container">
             <h1>Contact Us</h1>
-            <p><b>Email:</b> nagarshaurya70@gmail.com</p>
+            <p><b>Email:</b> infolive.theainewsanchor@gmail.com</p>
             <p><b>Phone:</b> 8780695872</p>
             <p><b>Address:</b> Zebar School For Children, Thaltej, Ahmedabad - 380058</p>
         </div>
@@ -225,3 +203,32 @@ def main():
 
 if __name__ == "__main__":
     main()
+'''''image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
+                print('test1')
+                result_url = generate_did_video(script, image_url)
+                print('test2')
+                video_id = result_url['id']
+
+                
+
+                
+            url = "https://d-id-talks-prod.s3.us-west-2.amazonaws.com/google-oauth2%7C107647455065119247298/" + str(video_id) + "/1720790321465.mp4?AWSAccessKeyId=AKIA5CUMPJBIK65W6FGA&Expires=1720876742&Signature=o0YkEdSnjHlAIktX4ro8oBM%2Bgz4%3D"
+            print('URL: ',url)
+
+            headers = {
+                       "accept": "application/json",
+                        "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
+            }
+
+            response = requests.get(url, headers=headers)
+            if "_url" in response.text:
+                           print('inside')
+                           time.sleep(2)
+
+            print('Respone text: ',response.text)
+            
+
+
+
+
+            print(video_id) """""""
