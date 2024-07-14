@@ -135,12 +135,15 @@ def main():
                 
             if api_key_news:
                    st.header("Generated News Video")
-                   if topic != "sports" or "Sports" or "sport":
-                        st.video('1720835456951.mp4')
-                   elif topic=="tech" or "technology" or "Technology":
-                         st.video('1720835881769.mp4')
-                   elif topic == "politics" or "Politics" or "American politics":
-                         st.video("1720835980469.mp4")
+                   topic = str(topic)
+                   if topic == 'sports':
+                    st.video('170835456951.mp4')
+                   elif topic == 'technology':
+                    st.video('1720835881769.mp4')
+                   elif topic == 'politics':
+                    st.video('1720835980469.mp4')
+                   else:
+                       st.write('Invalid topic')
             else:
                 st.error("No relevant articles found.")
         else:
@@ -203,4 +206,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-   
