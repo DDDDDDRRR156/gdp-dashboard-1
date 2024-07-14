@@ -203,7 +203,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-'''''image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
+'''image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                 print('test1')
                 result_url = generate_did_video(script, image_url)
                 print('test2')
@@ -231,4 +231,4 @@ if __name__ == "__main__":
 
 
 
-            print(video_id) """""""
+            print(video_id) '''
