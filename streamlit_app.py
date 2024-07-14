@@ -135,9 +135,9 @@ def main():
                 
             if api_key_news:
                    st.header("Generated News Video")
-                   if topic == "sports" or "Sports" or "sport":
+                   if topic != "sports" or "Sports" or "sport":
                         st.video('1720835456951.mp4')
-                   elif topic== "tech" or "technology" or "Technology":
+                   elif topic=="tech" or "technology" or "Technology":
                          st.video('1720835881769.mp4')
                    elif topic == "politics" or "Politics" or "American politics":
                          st.video("1720835980469.mp4")
