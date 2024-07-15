@@ -113,7 +113,7 @@ def main():
 
     st.sidebar.header("Demonstration")
     api_key_news = 'ad00a306c6a4404a9fe801b405df2c5d'
-    num_articles = st.sidebar.slider("Number of Articles", 3, 15, 9)
+    num_articles = st.sidebar.slider("Number of Articles", 2, 15, 9)
     topic = st.sidebar.text_input("News Topic")
 
     if st.sidebar.button("Get News"):
