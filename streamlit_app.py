@@ -148,29 +148,17 @@ def main():
                      result_url = generate_did_video(script, image_url)
                      print('test2')
                      video_id = result_url['id']
-
-                
-
-                
                     url = "https://d-id-talks-prod.s3.us-west-2.amazonaws.com/google-oauth2%7C107647455065119247298/" + str(video_id) + "/1720790321465.mp4?AWSAccessKeyId=AKIA5CUMPJBIK65W6FGA&Expires=1720876742&Signature=o0YkEdSnjHlAIktX4ro8oBM%2Bgz4%3D"
                     print('URL: ',url)
-
                     headers = {
                        "accept": "application/json",
                         "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
                              }
-
                     response = requests.get(url, headers=headers)
                     if "_url" in response.text:
                                  print('inside')
                                  time.sleep(2)
-
                     print('Respone text: ',response.text)
-            
-
-
-
-
                     print(video_id)   
             else:
                 st.error("No relevant articles found.")
