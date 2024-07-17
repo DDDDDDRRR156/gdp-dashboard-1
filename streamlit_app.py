@@ -13,8 +13,8 @@ def fetch_news(api_key, query, num_articles):
     response = requests.get(url, headers=headers)
     
     articles = response.json().get('articles', [])
-    relevant_articles = [article for article in articles[:num_articles] if query.lower() in article['title'].lower() or query.lower() in article['description'].lower()]
-    return relevant_articles
+    #relevant_articles = [article for article in articles[:num_articles] if query.lower() in article['title'].lower() or query.lower() in article['description'].lower()]
+    #return relevant_articles
 
 # Function to generate video using D-ID API
 def generate_did_video(script, image_url):
@@ -113,7 +113,7 @@ def main():
 
     st.sidebar.header("Demonstration")
     api_key_news = 'ad00a306c6a4404a9fe801b405df2c5d'
-    num_articles = st.sidebar.slider("Number of Articles", 2, 15, 9)
+    num_articles = st.sidebar.slider("Number of Articles", 2, 10, 4)
     topic = st.sidebar.text_input("News Topic")
 
     if st.sidebar.button("Get News"):
@@ -143,7 +143,35 @@ def main():
                    elif topic == 'politics':
                     st.video('1720835980469.mp4')
                    else:
-                       st.write('Invalid topic')
+                     image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
+                print('test1')
+                result_url = generate_did_video(script, image_url)
+                print('test2')
+                video_id = result_url['id']
+
+                
+
+                
+            url = "https://d-id-talks-prod.s3.us-west-2.amazonaws.com/google-oauth2%7C107647455065119247298/" + str(video_id) + "/1720790321465.mp4?AWSAccessKeyId=AKIA5CUMPJBIK65W6FGA&Expires=1720876742&Signature=o0YkEdSnjHlAIktX4ro8oBM%2Bgz4%3D"
+            print('URL: ',url)
+
+            headers = {
+                       "accept": "application/json",
+                        "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
+            }
+
+            response = requests.get(url, headers=headers)
+            if "_url" in response.text:
+                           print('inside')
+                           time.sleep(2)
+
+            print('Respone text: ',response.text)
+            
+
+
+
+
+            print(video_id)   
             else:
                 st.error("No relevant articles found.")
         else:
