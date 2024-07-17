@@ -13,8 +13,8 @@ def fetch_news(api_key, query, num_articles):
     response = requests.get(url, headers=headers)
     
     articles = response.json().get('articles', [])
-    #relevant_articles = [article for article in articles[:num_articles] if query.lower() in article['title'].lower() or query.lower() in article['description'].lower()]
-    #return relevant_articles
+    relevant_articles = [article for article in articles[:num_articles] if query.lower() in article['title'].lower() or query.lower() in article['description'].lower()]
+    return relevant_articles
 
 # Function to generate video using D-ID API
 def generate_did_video(script, image_url):
