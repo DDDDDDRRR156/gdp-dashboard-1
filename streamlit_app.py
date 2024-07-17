@@ -159,7 +159,7 @@ def main():
                                  print('inside')
                                  time.sleep(2)
                      print('Respone text: ',response.text)
-                     print(video_id)   
+                     st.write(video_id)   
             else:
                 st.error("No relevant articles found.")
         else:
