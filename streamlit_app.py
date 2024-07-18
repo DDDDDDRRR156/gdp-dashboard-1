@@ -143,6 +143,8 @@ def main():
                             st.video('1721263506657.mp4')
                    elif topic == 'politics':
                             st.video('1721263310842.mp4')
+                    elif topic == 'health':
+                            st.video('')
                    else:
                      image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                      print('test1')
