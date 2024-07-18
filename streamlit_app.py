@@ -21,7 +21,7 @@ def fetch_news(query, num_articles):
 def generate_did_video(script, image_url):
     url = "https://api.d-id.com/talks"
     headers = {
-        "Authorization": "Basic aGFwcHlidW1iZWxlb25AZ21haWwuY29t:qC5KWjJn0Auq7PLxiZyRJ",
+        "Authorization": "Basic aGVucnl4bHVjZmFuZmljQGdtYWlsLmNvbQ:nkjdlM-REszSNQ1PJMSNs",
         "Content-Type": "application/json"
    }
     payload = {
@@ -142,7 +142,7 @@ def main():
                    elif topic == 'technology':
                             st.video('1721263506657.mp4')
                    elif topic == 'politics':
-                            st.video('')
+                            st.video('1721263310842.mp4')
                    else:
                      image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                      print('test1')
@@ -153,7 +153,7 @@ def main():
                      print('URL: ',url)
                      headers = {
                        "accept": "application/json",
-                        "authorization": "Basic YUdGd2NIbGlkVzFpWld4bGIyNUFaMjFoYVd3dVkyOXQ6cUM1S1dqSm4wQXVxN1BMeGlaeVJK"
+                        "authorization": "Basic YUdWdWNubDRiSFZqWm1GdVptbGpRR2R0WVdsc0xtTnZiUTpua2pkbE0tUkVzelNOUTFQSk1TTnM="
                              }
                      response = requests.get(url, headers=headers)
                      if "_url" in response.text:
