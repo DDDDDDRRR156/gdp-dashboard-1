@@ -138,11 +138,11 @@ def main():
                    st.header("Generated News Video")
                    topic = str(topic)
                    if topic == 'sports' or 'Sports' or 'sport':
-                    st.video('1721263457880.mp4')
+                            st.video('1721263457880.mp4')
                    elif topic == 'technology' or 'Technology' or 'tech' or 'Tech':
-                    st.video('1721263506657.mp4')
+                            st.video('1721263506657.mp4')
                    elif topic == 'politics' or 'Politics':
-                    st.video('1721263310842.mp4')
+                            st.video('1721263310842.mp4')
                    else:
                      image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                      print('test1')
