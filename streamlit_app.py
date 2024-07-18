@@ -140,9 +140,9 @@ def main():
                    if topic == 'sports' or 'Sports' or 'sport':
                             st.video('1721263457880.mp4')
                    elif topic == 'technology' or 'Technology' or 'tech' or 'Tech':
-                            st.video('')
+                            st.video('1721263506657.mp4')
                    elif topic == 'politics' or 'Politics':
-                            st.video('1721263310842.mp4')
+                            st.video('')
                    else:
                      image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                      print('test1')
