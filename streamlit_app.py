@@ -5,10 +5,11 @@ import streamlit as st
 from datetime import datetime, timedelta
 
 # Function to fetch news from Google News
-def fetch_news(api_key, query, num_articles):
-    url = f"https://newsapi.org/v2/everything?q={query}&language=en&sortBy=relevancy&pageSize={num_articles}&from={(datetime.now() - timedelta(days=2)).strftime('%Y-%m-%d')}&to={datetime.now().strftime('%Y-%m-%d')}"
+def fetch_news(query, num_articles):
+    url = f"https://gnews.io/api/v4/search?q={query}&apikey=af0e8ead3e2b0fc08eb9f9774e68a7fa&language=en&sortBy=relevancy&pageSize={num_articles}&from={(datetime.now() - timedelta(days=2)).strftime('%Y-%m-%d')}&to={datetime.now().strftime('%Y-%m-%d')}"
+
     headers = {
-        'Authorization': 'Basic ad00a306c6a4404a9fe801b405df2c5d'
+        'Authorization': 'Basic af0e8ead3e2b0fc08eb9f9774e68a7fa'
     }
     response = requests.get(url, headers=headers)
     
@@ -20,7 +21,7 @@ def fetch_news(api_key, query, num_articles):
 def generate_did_video(script, image_url):
     url = "https://api.d-id.com/talks"
     headers = {
-        "Authorization": "Basic aW5mb2xpdmVuZXdzMTIzNEBnbWFpbC5jb20:yklg-h2r71QG4iftxHKws",
+        "Authorization": "Basic aGFwcHlidW1iZWxlb25AZ21haWwuY29t:qC5KWjJn0Auq7PLxiZyRJ",
         "Content-Type": "application/json"
    }
     payload = {
@@ -136,12 +137,12 @@ def main():
             if api_key_news:
                    st.header("Generated News Video")
                    topic = str(topic)
-                   if topic == 'sports':
-                    st.video('170835456951.mp4')
-                   elif topic == 'technology':
-                    st.video('1720835881769.mp4')
-                   elif topic == 'politics':
-                    st.video('1720835980469.mp4')
+                   if topic == 'sports' or 'Sports' or 'sport':
+                    st.video('not in use\1721263457880.mp4')
+                   elif topic == 'technology' or 'Technology' or 'tech' or 'Tech':
+                    st.video('not in use\1721263506657.mp4')
+                   elif topic == 'politics' or 'Politics':
+                    st.video('not in use\1721263310842.mp4')
                    else:
                      image_url = "https://i.ibb.co/yqswjHZ/Designer.png"
                      print('test1')
@@ -152,7 +153,7 @@ def main():
                      print('URL: ',url)
                      headers = {
                        "accept": "application/json",
-                        "authorization": "Basic ZVhoeGFtZHFhR2RqWmtCd2NtbDJZWFJsY21Wc1lYa3VZWEJ3YkdWcFpDNWpiMjA6T1dmUE1aOFBFT1p6bnktUkNsVmp5"
+                        "authorization": "Basic YUdGd2NIbGlkVzFpWld4bGIyNUFaMjFoYVd3dVkyOXQ6cUM1S1dqSm4wQXVxN1BMeGlaeVJK"
                              }
                      response = requests.get(url, headers=headers)
                      if "_url" in response.text:
