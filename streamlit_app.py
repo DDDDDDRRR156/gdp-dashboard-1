@@ -119,7 +119,7 @@ def main():
 
     if st.sidebar.button("Get News"):
         if api_key_news and topic:
-            news_articles = fetch_news(api_key_news, topic, num_articles)
+            news_articles = fetch_news(topic, num_articles)
             if news_articles:
                 script = " ".join([f"{article['title']}. {article['description']}" for article in news_articles])
 
